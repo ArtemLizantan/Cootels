@@ -751,6 +751,7 @@ section {
   }
   .hero__left {
     margin-top: 130px;
+    
   }
   .header__btn {
     margin-left: 0;
@@ -779,6 +780,9 @@ section {
   }
   .rooms__items {
     padding-bottom: 50px;
+    border: 1px solid grey;
+    padding: 15px 15px;
+    margin-bottom: 15px;
   }
   .getroom__left {
     margin-bottom: 50px;
