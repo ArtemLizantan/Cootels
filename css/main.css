@@ -936,9 +936,7 @@ section {
     top: 70px;
   }
 }
- .rooms__items__subtitle{
-   font-size:15px;
-}
+
 .organic__title {
   margin-top: 40px;
 }
@@ -958,7 +956,7 @@ section {
     padding-bottom: 10px;
   }
   .hero__subtitle, .about__subtitle, .activites__subtitle, .organic__subtitle, .rooms__subtitle, .rooms__items__subtitle, .getroom__journey, .getroom__subtitle, .slider__subtitle, .footer__subtitle {
-    font-size: 17px;
+    font-size: 15px;
   }
 }
 /*# sourceMappingURL=main.css.map */
