@@ -1,0 +1,1135 @@
+// Переменные 
+$font1: 'Montserrat',
+sans-serif;
+$font2: 'Inter',
+sans-serif;
+
+
+
+// Шаблоны
+
+%title {
+    font-weight: 600;
+    font-family: $font1;
+    line-height: 72px;
+    color: #192252;
+    padding-bottom: 24px;
+    font-size: 36px;
+}
+
+%subtitle {
+    color: #848FAC;
+    font-size: 18px;
+    font-family: $font2;
+    line-height: 27px;
+    padding-bottom: 32px;
+}
+
+
+%btn {
+    display: flex;
+    background-color: #0E1734;
+    padding: 14px 16px;
+    border-radius: 4px;
+    font-family: $font2;
+    text-align: center;
+    color: white;
+
+    &:hover {
+        background-color: #172b6d;
+        transition: all 0.5s;
+    }
+
+    a {
+        color: #fff;
+        text-align: center;
+    }
+
+}
+
+// конец шаблонов
+
+// отступ между секциями
+section {
+    margin-bottom: 215px;
+}
+
+// ограничивающий контейнер
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* BURGER START */
+
+.header {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 50;
+
+    &__btn {
+        margin-left: 340px;
+        color: #fff;
+        background-color: #0E1734;
+        padding: 16px 32px;
+        border-radius: 4px;
+
+        &:hover {
+            background-color: orange;
+        }
+    }
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #848FAC;
+    z-index: 2;
+}
+
+
+.header__body {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    height: 80px;
+    align-items: center;
+}
+
+.header__logo {
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 32px;
+    position: relative;
+    z-index: 3;
+    font-family: $font1;
+}
+
+.header__list {
+    display: flex;
+    position: relative;
+    z-index: 2;
+    font-family: $font2;
+
+}
+
+.header__list li {
+    margin: 0px 0px 0px 20px;
+}
+
+.header__link {
+    color: #fff;
+
+
+    &:hover {
+        color: orange;
+        transition: all 0.4s ease 0s;
+    }
+}
+
+.header__burger {
+    display: none;
+}
+
+// 800px burger start
+
+@media(max-width:800px) {
+
+    body.lock {
+        overflow: hidden;
+    }
+    .header__btn {
+        margin: 0;
+        position: absolute;
+        width: 83px;
+        background-color: #194df9;
+        text-align: center;
+        width: 83%;
+
+    }
+
+    .header__link {
+        font-size: 24px;
+    }
+
+    .header__burger {
+        display: block;
+        position: relative;
+        width: 30px;
+        height: 20px;
+        position: relative;
+        z-index: 3;
+    }
+
+    .header__menu {
+        position: fixed;
+        width: 100%;
+        top: -100%;
+        right: 50px;
+        height: 100%;
+        background-color: black;
+        left: 0;
+        padding: 70px 0px 0px 0px;
+        transition: all 0.5s ease 0s;
+        overflow: auto;
+
+    }
+
+    .header__menu.active {
+        top: 0;
+    }
+
+    .header__body {
+        height: 50px;
+    }
+
+    .header__list {
+        display: block;
+    }
+
+    .header__list li {
+        margin-bottom: 40px;
+    }
+
+
+}
+
+.header__burger:before,
+.header__burger:after {
+    content: '';
+    background-color: #fff;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    left: 0;
+    transition: all 0.3s ease 0s;
+}
+
+.header__burger:before {
+    top: 0;
+}
+
+.header__burger:after {
+    bottom: 0;
+}
+
+.header__burger span {
+    position: absolute;
+    background-color: #fff;
+    width: 100%;
+    height: 2px;
+    top: 9px;
+    transition: all 0.3s ease 0s;
+
+}
+
+.header__burger.active:before {
+    transform: rotate(45deg);
+    top: 9px;
+}
+
+.header__burger.active:after {
+    transform: rotate(-45deg);
+    bottom: 9px;
+}
+
+.header__burger.active span {
+    transform: scale(0);
+}
+
+/* burger end */
+
+
+
+//  hero start
+
+.hero {
+    // отступ от вверха меню
+    margin-top: 100px;
+
+
+    &__body {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__button {
+        @extend %btn;
+        padding: 16px 32px;
+        width: 156px;
+    }
+
+    &__left {
+        margin-top: 215px;
+        max-width: 50%;
+        margin-right: 24px;
+
+    }
+
+    &__rigth {
+        display: flex;
+        position: relative;
+        margin-top: 80px;
+    }
+
+    &__items:not(:last-child) {
+        padding-right: 24px;
+    }
+
+    .hero-down {
+        position: relative;
+        top: 80px;
+    }
+
+    &__title {
+        @extend %title;
+        font-size: 48px;
+    }
+
+    &__subtitle {
+        @extend %subtitle;
+        padding-bottom: 32px;
+    }
+
+}
+// section hero end
+
+
+// About start
+
+.about {
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__left {
+        margin-right: 126px;
+    }
+
+    &__button {
+        @extend %btn;
+        padding: 16px 32px;
+        width: 156px;
+    }
+
+    &__title {
+        @extend %title;
+    }
+
+    &__text:not(:last-child) {
+        padding-bottom: 16px;
+    }
+
+    &__subtitle {
+        @extend %subtitle;
+        padding-bottom: 32px;
+    }
+}
+
+// About end
+
+
+// Activites Start
+
+.activites {
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 32px;
+
+    }
+
+    &__title {
+        @extend %title;
+    }
+
+    &__subtitle {
+        @extend %subtitle;
+        max-width: 590px;
+        padding-bottom: 0;
+    }
+}
+
+.organic {
+    &__bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__title {
+        @extend %title;
+    }
+
+    &__subtitle {
+        @extend %subtitle;
+        max-width: 590px;
+        padding-bottom: 0;
+    }
+}
+// Activites END
+
+// ROOMS START
+
+.rooms {
+    &__top {
+        text-align: center;
+        margin-bottom: 88px;
+    }
+
+    &__title {
+        @extend %title;
+    }
+
+    &__subtitle {
+        @extend %subtitle;
+        max-width: 600px;
+        margin: 0 auto
+    }
+
+    &__btn {
+        @extend %btn;
+        padding: 16px 32px;
+        width: 156px;
+        display: flex;
+        margin: 0 auto;
+        width: 165px;
+    }
+
+    &__items__title {
+        @extend %title;
+        font-size: 24px;
+        padding-bottom: 16px;
+        padding-top: 32px;
+        color: black
+    }
+
+    &__items__subtitle {
+        @extend %subtitle;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .rooms__button {
+        @extend %btn;
+        background: none;
+        color: #424F7B;
+        font-size: 18px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        font-weight: 400;
+
+        &:hover {
+            color: #194df9;
+            background: none;
+        }
+    }
+
+    .rooms__button::after {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url(../img/icons/Arrow_Right.svg);
+        margin-left: 12px;
+        transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+}
+
+.rooms__button:hover::after {
+    transform: translateX(10px);
+}
+
+// Rooms end
+
+
+// GETROOM Start
+
+.getroom {
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center
+    }
+
+    &__journey {
+        @extend %subtitle;
+        font-size: 16px;
+        color: #424F7B;
+        padding-bottom: 12px;
+    }
+
+    &__title {
+        @extend %title;
+        line-height: 54px;
+
+    }
+
+    &__subtitle {
+        @extend %subtitle;
+
+    }
+
+    &__buttons {
+        display: flex;
+        align-items: center;
+
+
+    }
+
+
+    .btn {
+        max-width: 148px;
+        @extend %btn;
+        margin-right: 24px;
+    }
+
+    .btn-nonbg {
+        background: none;
+        color: #0E1734;
+        font-weight: 500;
+        padding: 12px 20px;
+
+        &:hover {
+            border: 1px solid #194df9;
+        }
+    }
+
+    // Правый блок GETROOM
+    &__item {
+        position: relative;
+        background-color: #fff;
+        -webkit-box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.011);
+        box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.086);
+        border-radius: 4px;
+        width: 588px;
+    }
+
+    &__item:not(:last-child) {
+        margin-bottom: 24px;
+    }
+
+    &__title__getroomtitle {
+        position: relative;
+        display: block;
+        width: 100%;
+        padding: 32px 36px;
+        font-family: "Montserrat", sans-serif;
+        font-style: normal;
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1.5;
+        letter-spacing: -.01em;
+        color: #192252;
+        color: #424f7b;
+        cursor: pointer;
+
+    }
+
+
+    &__subtitle__getroomsubtitle {
+        display: none;
+        padding: 0 36px 32px;
+        font-family: "Inter", sans-serif;
+        font-style: normal;
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #848fac;
+
+
+    }
+
+
+    &__title__getroomtitle:after {
+        content: '';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background-image: url(../img/icons/arrow1.svg);
+        background-repeat: no-repeat;
+        margin-left: 12px;
+        transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+        position: absolute;
+        top: 40px;
+        right: 36px;
+
+    }
+
+    &__title__getroomtitle:before {
+        transform: rotate(40deg);
+        right: 0;
+    }
+
+    &__title__getroomtitle:after {
+        transform: rotate(0deg);
+
+    }
+
+    // Конец правого блока GETROOM
+
+}
+
+.getroom__title__getroomtitle.active::before {
+    transform: rotate(-40deg);
+}
+
+.getroom__title__getroomtitle.active::after {
+    transform: rotate(180deg);
+}
+
+// GETROOMS END
+
+
+// ................................................................................................................................
+
+
+// SLIDER START
+
+// Слайдер 
+
+.slide {
+    &__title {
+        @extend %title;
+        text-align: center;
+    }
+}
+
+.slider {
+    &__item {
+        text-align: center;
+
+    }
+
+    &__picture {
+        margin: 0 auto;
+        border-radius: 50%
+    }
+
+    &__subtitle {
+        @extend %subtitle;
+        padding-top: 44px;
+    }
+
+    &__name {
+        font-size: 20px;
+        font-family: $font2;
+        line-height: 30px;
+        font-weight: 500;
+    }
+}
+
+.slick-slider {
+    position: relative;
+    margin-top: 62px;
+}
+
+/* Ограничивающая оболочка */
+.slick-list {
+    overflow: hidden;
+}
+
+/* Лента слайдов */
+.slick-track {
+    display: flex;
+    margin: 0 auto;
+}
+
+/* Слайд */
+.slick-slide {}
+
+/* Слайд активный (показывается) */
+.slick-slide.slick-active {}
+
+/* Слайд основной */
+.slick-slide.slick-current {}
+
+/* Слайд по центру */
+.slick-slide.slick-center {}
+
+/* Клонированный слайд */
+.slick-slide.slick-cloned {}
+
+/* Стрелка */
+.slick-arrow {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+}
+
+/* Стрелка влево */
+.slick-arrow.slick-prev {}
+
+/* Стрелка вправо */
+.slick-arrow.slick-next {}
+
+/* Стрелка не активная */
+.slick-arrow.slick-disabled {}
+
+/* Точки (булиты) */
+.slick-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    padding-top: 24px;
+}
+
+.slick-dots li {
+    list-style-type: none;
+
+    &:not(:last-child) {
+        margin-right: 12px;
+    }
+}
+
+
+
+/* Элемент точки */
+.slick-dots li button {
+    border-radius: 50%;
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 0;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: #FAB047;
+
+}
+
+.slick-dots li.slick-active {
+    width: 12px;
+    height: 12px;
+}
+
+
+// .............. SLIDER END...............................................................................................................................
+
+
+
+
+// FOOTER START
+
+.footer {
+    background-color: #0B265A;
+
+    &__logo {
+        font-family: $font1;
+        font-size: 600px;
+        font-size: 32px;
+        line-height: 39px;
+    }
+
+    &__subtitle {
+        @extend %subtitle;
+        color: #D9DBDE;
+        padding-top: 13px;
+    }
+
+    &__icons {
+        display: flex;
+
+        &:not(:last-child) {
+            margin-right: 100px;
+        }
+
+        .fa-brands {
+            margin-right: 24px;
+            font-size: 32px;
+            color: white;
+
+            &:hover {
+                color: #FAB047;
+            }
+        }
+    }
+
+    &__title {
+        color: #ffff;
+        font-size: 16px;
+        line-height: 20px;
+        padding-bottom: 24px;
+        font-weight: 700;
+        font-family: $font2;
+    }
+
+    &__list li {
+        font-family: $font2;
+        cursor: pointer;
+        color: #D9DBDE;
+        margin-bottom: 24px;
+
+        &:hover {
+            color: #FAB047;
+        }
+    }
+
+    &__body {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    &__items {
+        display: flex;
+        justify-content: space-between;
+        color: white;
+    }
+
+    &__list {
+        padding: 0;
+    }
+
+    &__colum {
+        &:not(:last-child) {
+            margin-right: 100px;
+        }
+    }
+
+    &__rigth {
+        display: flex;
+    }
+}
+
+// FOOTER END
+
+
+
+// 1280 ADAPTIVE
+
+@media(max-width:1280px) {
+    .container {
+        width: 960px;
+
+    }
+
+    .hero {
+        padding-top: 0;
+
+        &__body {
+            flex-direction: column;
+        }
+
+        &__rigth {
+            margin: 0 auto;
+            margin-top: 40px;
+        }
+
+        &__title {
+            width: 521px;
+        }
+
+        &__subtitle {
+            width: 521px;
+        }
+
+        &__left {
+            margin-top: 80px;
+        }
+    }
+
+    .header__btn {
+        margin-left: 0;
+    }
+
+    .title {
+        font-size: 30px;
+        line-height: 45px;
+    }
+
+    .subtitle {
+        font-style: 16px;
+    }
+
+    .activites {
+        &__subtitle {
+            max-width: 300px;
+        }
+    }
+
+    .organic {
+        &__subtitle {
+            max-width: 300px;
+        }
+
+        &__left {
+            max-width: 100%;
+        }
+    }
+
+
+    .rooms {
+        &__item {
+            flex-direction: column;
+        }
+
+        &__items {
+            padding-bottom: 50px;
+        }
+
+
+    }
+
+    .getroom {
+        &__left {
+            margin-bottom: 50px;
+        }
+
+        &__body {
+            flex-direction: column;
+        }
+    }
+
+
+
+
+
+    @media (max-width:992px) {
+        .container {
+            width: 720px;
+        }
+
+        .activites {
+            &__rigth {
+                max-width: 240px;
+            }
+        }
+
+        .organic {
+            &__left {
+                max-width: 240px;
+            }
+        }
+
+        .footer {
+            &__subtitle {
+                font-size: 13px;
+            }
+        }
+
+    }
+
+    // 768 ADAPTIVE
+
+    @media (max-width:768px) {
+        .container {
+            width: 540px;
+        }
+
+
+        .hero {
+            &__items {
+                height: 400px;
+                margin-top: 50px;
+            }
+        }
+
+
+        .header {
+            &__list {
+                padding-top: 40px;
+            }
+        }
+
+        .about {
+            &__body {
+                flex-direction: column;
+            }
+
+            &__left {
+                margin-right: 0;
+                width: 300px;
+                margin-bottom: 50px;
+            }
+        }
+
+        .footer {
+
+            &__items {
+                flex-direction: column;
+            }
+
+            &__left {
+                width: 100%;
+                border-bottom: 2px solid white;
+                margin-bottom: 40px;
+                padding-bottom: 10px;
+            }
+        }
+
+
+        .activites {
+            &__rigth {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            &__subtitle {
+                margin-bottom: 40px;
+                max-width: 576px;
+            }
+
+            &__left {
+                padding-bottom: 20px;
+            }
+
+            &__top {
+                flex-direction: column;
+                padding-bottom: 40px;
+            }
+        }
+
+        .organic {
+            &__left {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            &__subtitle {
+                max-width: 576px;
+            }
+
+            &__rigth {
+                padding-top: 20px;
+            }
+
+            &__bottom {
+                flex-direction: column;
+            }
+        }
+    }
+
+    // 576 ADAPTIVE
+
+    @media (max-width:576px) {
+        .footer {
+            &__colum {
+                padding-bottom: 10px;
+                margin-bottom: 40px;
+
+            }
+
+            &__rigth {
+                flex-direction: column;
+            }
+
+        }
+
+        .container {
+            width: 90%;
+        }
+
+        .getroom {
+            &__item {
+                width: 350px;
+            }
+
+            &__title__getroomtitle {
+                padding: 32px 25px;
+            }
+        }
+
+        .footer__colum:not(:last-child) {
+            border-bottom: 2px solid white;
+            width: 100%;
+        }
+
+        .header {
+            max-width: 100%;
+            width: 100%;
+
+            &__logo {
+                font-size: 20px;
+            }
+
+            &__btn {
+                width: 69%;
+            }
+        }
+
+        section {
+            margin-bottom: 50px;
+        }
+
+        .hero {
+            &__title {
+                width: 300px;
+            }
+
+            &__subtitle {
+                width: 300px;
+            }
+
+            &__items:not(:last-child) {
+                padding-right: 3px;
+            }
+        }
+
+        .hero .hero-down {
+            top: 70px;
+        }
+
+
+    }
+
+    .organic {
+
+        &__title {
+            margin-top: 40px;
+        }
+    }
+
+    // 400 ADAPTIVE
+
+    @media (max-width:400px) {
+        .hero {
+            &__items {
+                height: 372px;
+            }
+
+            .hero-down {
+                top: 64px;
+            }
+        }
+
+        .hero-first {
+            margin-left: -6px;
+        }
+
+        .footer {
+            &__body {
+                padding-top: 60px;
+                padding-bottom: 10px;
+            }
+        }
+
+        %subtitle {
+            font-size: 17px;
+        }
+    }
+
+
+    //  ADAPTIVE END
